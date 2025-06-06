@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "iCielBCLodestone";
+  src: url("./iCielBCLodestone-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "UTM-Chancery";
+  src: url("./UTM-Chancery.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.font-lodestone {
+  font-family: "iCielBCLodestone", sans-serif;
+}
+.font-UTM {
+  font-family: "UTM-Chancery", sans-serif;
+}
