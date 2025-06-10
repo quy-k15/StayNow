@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaRegCalendar } from "react-icons/fa6";
 import { IoMdAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import DateRangePicker from './DateRangePicker';
+
 
 const hotels = [
   { name: "Tất cả khách sạn", value: "all" },
@@ -19,10 +20,6 @@ const Form = () => {
   const handleSelect = (value) => {
     setSelectedHotel(value);
   };
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [openStart, setOpenStart] = useState(false);
-  const [openEnd, setOpenEnd] = useState(false);
 
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
@@ -32,13 +29,20 @@ const Form = () => {
       setAdults((prev) =>
         action === "increase" ? prev + 1 : Math.max(1, prev - 1)
       );
+      localStorage.setItem("adults", adults);
     } else if (type === "children") {
       setChildren((prev) =>
         action === "increase" ? prev + 1 : Math.max(0, prev - 1)
       );
+      localStorage.setItem("children", children);
     }
   };
-
+  useEffect(()=>{
+    const storedAdults = localStorage.getItem("adults");
+    const storedChildren = localStorage.getItem("children");
+    if(storedAdults) setAdults(storedAdults);
+    if(storedChildren) setChildren(storedChildren);
+  },[])
   return (
     <div className="absolute z-1 -bottom-30 right-10 w-[350px] bg-[#6F6F4B] p-5 border-2 rounded-sm border-none text-balance text-white">
       <p>
@@ -67,48 +71,9 @@ const Form = () => {
         </PopoverPanel>
       </Popover>
       <h4 className="pt-2 pb-1 font-bold">Ngày</h4>
-      <div className="py-2 relative flex justify-between gap-4">
-        <button
-          onClick={() => setOpenStart(!openStart)}
-          className="w-1/2 px-4 py-2 bg-white text-[#A0A0A0] rounded flex justify-between gap-4 items-center"
-        >
-          {startDate ? startDate.toLocaleDateString() : "Ngày đến"}
-          <FaRegCalendar className="text-[#F2B03F]" />
-        </button>
 
-        {openStart && (
-          <div className="absolute top-full left-0 z-10 rounded-xl bg-white">
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => {
-                setStartDate(date);
-                setOpenStart(false);
-              }}
-              inline
-            />
-          </div>
-        )}
-        <button
-          onClick={() => setOpenEnd(!openEnd)}
-          className="w-1/2 px-4 py-2 bg-white text-[#A0A0A0] rounded flex justify-between gap-4 items-center"
-        >
-          {endDate ? endDate.toLocaleDateString() : "Ngày đi"}
-          <FaRegCalendar className="text-[#F2B03F]" />
-        </button>
+      <DateRangePicker bgColor="ffffff" textColor="A0A0A0" width="100%"/>
 
-        {openEnd && (
-          <div className="absolute top-full left-0 z-10 rounded-xl bg-white">
-            <DatePicker
-              selected={endDate}
-              onChange={(date) => {
-                setEndDate(date);
-                setOpenEnd(false);
-              }}
-              inline
-            />
-          </div>
-        )}
-      </div>
       <h4 className="pb-1 font-bold">Khách</h4>
       <div className=" relative flex justify-between gap-4">
         {/* Người lớn */}

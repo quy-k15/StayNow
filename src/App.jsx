@@ -8,6 +8,7 @@ import {
 
 import "./App.css"; // import file css
 import HomePage from "./pages/HomePage";
+import ListHotelsPage from "./pages/ListHotelsPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./assets/fonts/fonts.css";
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/homePage" replace />} />
             <Route path="/homePage" element={<HomePage />} />
+            <Route path="/listHotels" element={<ListHotelsPage />} />
             <Route
               path="*"
               element={
