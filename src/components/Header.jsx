@@ -61,7 +61,7 @@ const Header = () => {
           <a href="/homePage" className="text-sm/6 font-semibold text-gray-900">
             Trang Chủ 
           </a>
-          <a href="/listHotels" className="text-sm/6 font-semibold text-gray-900">
+          <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Khách Sạn 
           </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
@@ -110,7 +110,7 @@ const Header = () => {
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end cursor-pointer">
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <a href="/bookingHotel" className="text-sm/6 font-semibold text-gray-900">
             Đặt Phòng  
           </a>
         </div>
@@ -151,7 +151,7 @@ const Header = () => {
                   Trang Chủ
                 </a>
                 <a
-                  href="/listHotels"
+                  href="/"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Khách Sạn
@@ -189,7 +189,7 @@ const Header = () => {
                 </a>
               </div>
               <a
-                  href="#"
+                  href="/bookingHotel"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Đặt Phòng 

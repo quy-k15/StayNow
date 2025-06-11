@@ -48,7 +48,7 @@ const Slide = () => {
             <img
               src={img}
               alt={`main-${idx}`}
-              className="w-full h-[550px] object-cover rounded"
+              className="w-full h-[500px] object-cover rounded"
             />
           </SwiperSlide>
         ))}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HotelCard from "../components/HotelCard";
+import RoomCard from "../components/RoomCard";
 import Subtitle from "../components/Subtitle";
 import imghotelLists from "../assets/imghotelLists.png";
 import DateRangePicker from "../components/DateRangePicker";
@@ -7,7 +7,7 @@ import { FaUserGroup } from "react-icons/fa6";
 import GuestRoomPicker from "../components/GuestRoomPicker";
 import DetailRoomCard from "../components/DetailRoomCard";
 
-const ListHotelsPage = () => {
+const BookingHotel = () => {
   const [showSubtitle, setShowSubtitle] = useState(true);
   const [opendDetailRoom, setOpenDetailRoom] = useState(false);
 
@@ -51,7 +51,7 @@ const ListHotelsPage = () => {
           </div>
         </div>
         <div className="w-full">
-          <HotelCard
+          <RoomCard
             img={imghotelLists}
             name="IMPERIAL"
             star="4.5"
@@ -66,4 +66,4 @@ const ListHotelsPage = () => {
     </div>
   );
 };
-export default ListHotelsPage;
+export default BookingHotel;
