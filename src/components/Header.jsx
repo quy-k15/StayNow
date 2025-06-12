@@ -61,7 +61,7 @@ const Header = () => {
           <a href="/homePage" className="text-sm/6 font-semibold text-gray-900">
             Trang Chủ 
           </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <a href="/listHotelsPage" className="text-sm/6 font-semibold text-gray-900">
             Khách Sạn 
           </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
@@ -151,7 +151,7 @@ const Header = () => {
                   Trang Chủ
                 </a>
                 <a
-                  href="/"
+                  href="/listHotelsPage"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Khách Sạn

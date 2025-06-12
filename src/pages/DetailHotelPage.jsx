@@ -114,7 +114,7 @@ const DetailHotelsPage = () => {
       <h2 className="font-lodestone text-2xl my-8">
         Những phòng còn trống tại Imperial
       </h2>
-      <div className="w-full overflow-auto max-h-[70vh] flex flex-col gap-4">
+      <div className="w-full overflow-auto max-h-[70vh] flex flex-col gap-4 mt-5 mb-10">
         <RoomCard
           img={imghotelLists}
           name="IMPERIAL"

@@ -15,7 +15,7 @@ import imgDJEvent from "../assets/imgDJEvent.png";
 import imgArtEvent from "../assets/imgArtEvent.png";
 import imgFeedback from "../assets/imgFeedback.png";
 
-import ListHotels from "../components/ListHotels";
+import SlideListHotels from "../components/SlideListHotels";
 import TienIchBox from "../components/TienIchBox";
 import Banner from "../components/Banner";
 import EventBox from "../components/EventBox";
@@ -52,7 +52,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <ListHotels />
+      <SlideListHotels />
       <div
         style={{
           backgroundImage: `url(${imgBGGiayCu})`,

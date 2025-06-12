@@ -10,6 +10,7 @@ import "./App.css"; // import file css
 import HomePage from "./pages/HomePage";
 import BookingHotel from "./pages/BookingHotel";
 import DetailHotelsPage from "./pages/DetailHotelPage";
+import ListHotelsPage from "./pages/ListHotelsPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./assets/fonts/fonts.css";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/homePage" element={<HomePage />} />
             <Route path="/bookingHotel" element={<BookingHotel />} />
              <Route path="/detailHotelsPage" element={<DetailHotelsPage />} />
+             <Route path="/listHotelsPage" element={<ListHotelsPage />} />
             <Route
               path="*"
               element={

@@ -16,7 +16,7 @@ const images = [
   { src: imgMuongThanh, value: 3, name: "Khách sạn Mường Thanh" },
 ];
 
-const ListHotels = () => {
+const SlideListHotels = () => {
   const swiperRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0); // realIndex
 
@@ -88,4 +88,4 @@ const ListHotels = () => {
   );
 };
 
-export default ListHotels;
+export default SlideListHotels;

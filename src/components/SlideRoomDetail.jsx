@@ -21,7 +21,7 @@ const images = [
   imgRoomCard6,
 ];
 
-const Slide = () => {
+const SlideRoomDetail = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const swiperRef = useRef(null);
   const handleSlideChange = (swiper) => {
@@ -77,4 +77,4 @@ const Slide = () => {
   );
 };
 
-export default Slide;
+export default SlideRoomDetail;

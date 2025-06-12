@@ -1,4 +1,4 @@
-import Slide from "./Slide";
+import SlideRoomDetail from "./SlideRoomDetail";
 import { SlSizeFullscreen } from "react-icons/sl";
 import { FaUserGroup } from "react-icons/fa6";
 import { BiExitFullscreen } from "react-icons/bi";
@@ -20,7 +20,7 @@ const DetailRoomCard = ({ name, onExit }) => {
 
         <div className="flex">
           <div className="w-2/3 bg-[#6F6F4B]/60 pb-3 rounded-t-sm rounded-bl-sm">
-            <Slide />
+            <SlideRoomDetail />
           </div>
 
           <div className="lg: w-1/3 flex flex-col justify-between">
