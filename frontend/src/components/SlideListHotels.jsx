@@ -30,11 +30,11 @@ const SlideListHotels = () => {
 
   return (
     <div className="relative">
-      <h1 className="text-[#9A1A04] font-lodestone flex justify-center text-4xl mt-28 mb-20">
+      <h1 className="text-[#9A1A04] font-lodestone flex justify-center text-2xl md:text-4xl lg:text-5xl mt-2 mb-5 lg:mt-28 lg:mb-20">
         {images[currentIndex].name}
       </h1>
-      <div className="flex gap-5">
-        <div className="w-3/4">
+      <div className="flex gap-5 relative">
+        <div className="w-full lg:w-3/4">
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex)}
@@ -48,7 +48,7 @@ const SlideListHotels = () => {
                 <img
                   src={item.src}
                   alt={`Slide ${index}`}
-                  className="w-full h-[570px] object-cover mb-10"
+                  className="w-full h-[300px] md:h-[570px] object-cover mb-10"
                 />
               </SwiperSlide>
             ))}
@@ -56,7 +56,7 @@ const SlideListHotels = () => {
         </div>
 
         {/* Nút điều khiển và hiển thị value */}
-        <div className="flex text-4xl gap-4 h-8">
+        <div className="flex text-4xl gap-4 h-8 absolute top-5 right-0 z-10 text-white lg:text-black lg:static">
           <button onClick={handlePrev} className="cursor-pointer">
             <MdOutlineArrowBackIos />
           </button>
@@ -66,16 +66,16 @@ const SlideListHotels = () => {
           </button>
         </div>
       </div>
-      <div className="absolute bg-[#F2B03F] p-10 w-[515px] top-1/3 right-0 z-10 rounded-sm ">
-        <h4 className="text-3xl">
+      <div className="md:absolute bg-[#F2B03F] -bottom-0 right-3 p-2 md:p-5 lg:p-10 w-full md:max-w-80 lg:max-w-[515px] lg:top-1/3 lg:right-0 z-10 rounded-sm ">
+        <h4 className="text-xl md:2xl lg:3xl">
           Được truyền cảm hứng từ những khao khát và mong muốn của chính bạn
         </h4>
-        <p className="my-4">
+        <p className="my-4 text-base md:text-lg ">
           Những du khách thế hệ mới luôn chủ động tìm kiếm các khoảnh khắc và kỉ
           niệm giàu cảm xúc, nhiệt huyết và đặc biệt đáp ứng điều bản thân họ
           trong từng suốt chuyến đi.
         </p>
-        <p className="mb-2">
+        <p className="mb-2 text-base md:text-lg ">
           Hãy sẵn sàng tận hưởng các trải nghiệm thú vị, thiết kế đầy cảm hứng
           và dịch vụ thông minh từ một thương hiệu thuần Việt sở hữu điều chuẩn
           quốc tế.

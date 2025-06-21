@@ -4,12 +4,12 @@ import Form from "../components/form";
 import iconGoodPrice from "../assets/iconGoodPrice.png";
 import iconSaveTime from "../assets/iconSaveTime.png";
 import iconSmartHotel from "../assets/iconSmartHotel.png";
-import imgBGGiayCu from "../assets/imgBGGiayCu.png";
+// import imgBGGiayCu from "../assets/imgBGGiayCu.png";
 import imgTienIch1 from "../assets/imgTienIch1.png";
 import imgTienIch2 from "../assets/imgTienIch2.png";
 import imgTienIch3 from "../assets/imgTienIch3.png";
 import imgTienIch4 from "../assets/imgTienIch4.png";
-import imgBgTrongDong from "../assets/imgBGTrongDong.png";
+// import imgBgTrongDong from "../assets/imgBGTrongDong.png";
 import imgMap from "../assets/imgMap.png";
 import imgDJEvent from "../assets/imgDJEvent.png";
 import imgArtEvent from "../assets/imgArtEvent.png";
@@ -20,32 +20,33 @@ import TienIchBox from "../components/TienIchBox";
 import Banner from "../components/Banner";
 import EventBox from "../components/EventBox";
 import WhyChooseHotelX from "../components/WhyChooseHotelX";
+import Voucher from "../components/Voucher";
 
 const Homepage = () => {
   return (
     <div className="mx-auto max-w-7xl font-UTM">
-      <div className="bg-[#E8D4B9] h-[550px] max-h-7xl relative flex items-center justify-between">
-        <div className="font-lodestone pl-20 text-7xl leading-tight text-[#9A1A04] relative z-10">
-          <h1 className="py-auto ">KHÁM PHÁ</h1>
-          <h1 className="py-auto ">CỐ ĐÔ HUẾ</h1>
+      <div className="bg-[#E8D4B9] h-[550px] md:h-[500px] max-h-7xl relative md:flex items-center justify-between mx-auto">
+        <div className="font-lodestone py-3 md:pl-10 lg:pl-20 flex text-2xl md:text-4xl lg:text-5xl leading-tight text-[#9A1A04] relative z-10 justify-center md:justify-start">
+          <h1 className="mr-2">KHÁM PHÁ</h1>
+          <h1>CỐ ĐÔ HUẾ</h1>
         </div>
         <img
           src={imgSlideHome}
-          className="absolute bottom-0 right-0 w-[70%] z-0"
+          className="absolute bottom-0 right-0 w-[70%] z-0 hidden md:block"
         ></img>
         <Form />
       </div>
-      <div className="flex gap-30 my-4">
-        <div className="flex gap-4 items-center justify-center text-lg">
-          <img src={iconGoodPrice} className="w-[55px]"></img>
+      <div className="flex flex-wrap  items-start gap-3 md:gap-10 lg:gap-20 mx-5 lg:justify-start text-center ">
+        <div className="flex gap-3 items-center text-center md:text-left">
+          <img src={iconGoodPrice} className="w-12 h-12"></img>
           <p>Giá tốt nhất</p>
         </div>
-        <div className="flex gap-4 items-center justify-center text-lg">
-          <img src={iconSaveTime} className="w-[55px]"></img>
+        <div className="flex gap-3 items-center text-center md:text-left">
+          <img src={iconSaveTime} className="w-12 h-12"></img>
           <p>Không cần đặt cọc</p>
         </div>
-        <div className="flex gap-4 items-center justify-center text-lg">
-          <img src={iconSmartHotel} className="w-[55px]"></img>
+        <div className="flex gap-3 items-center text-center md:text-left">
+          <img src={iconSmartHotel} className="w-12 h-12"></img>
           <div className="flex-col">
             <p>Khách sạn thông minh</p>
             <p>đầu tiên ở Việt Nam</p>
@@ -53,16 +54,8 @@ const Homepage = () => {
         </div>
       </div>
       <SlideListHotels />
-      <div
-        style={{
-          backgroundImage: `url(${imgBGGiayCu})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center top",
-          backgroundSize: "100% auto",
-        }}
-        className="pb-40"
-      >
-        <h1 className="text-[#9A1A04] font-lodestone flex justify-center text-4xl mt-3 py-20">
+      <div className="pb-8 md:pb-15 lg:pb-40 lg:bg-[url('/img/imgBGGiayCu.png')] lg:bg-no-repeat lg:bg-top lg:bg-[length:100%_auto]">
+        <h1 className="text-[#9A1A04] font-lodestone flex justify-center text-2xl md:text-4xl lg:text-5xl mt-3 py-5 md:py-10 lg:py-20">
           CÁC TIỆN ÍCH KHÁC
         </h1>
 
@@ -106,26 +99,35 @@ const Homepage = () => {
           />
         </div>
       </div>
-      <div className="my-10">
-        <Banner
+      <div className="md:my-3 lg:my-10">
+        {/* <Banner
           title="MỪNG KHAI TRƯƠNG KHÁCH SẠN"
           desc="Giảm giá 50% tiền đặt phòng từ 10-11 tới 2-12 "
           img={imgBgTrongDong}
+        /> */}
+        <Voucher
+          title="MỪNG KHAI TRƯƠNG KHÁCH SẠN"
+          percent="50"
+          startDate="10-11"
+          endDate="2-12"
         />
       </div>
-      <h1 className="text-[#9A1A04] font-lodestone flex justify-center text-4xl mt-3 py-20">
+      <h1 className="text-[#9A1A04] font-lodestone flex justify-center text-2xl md:text-4xl lg:text-5xl mt-3 py-5 md:py-10 lg:py-20">
         ĐỊA ĐIỂM VÀ SỰ KIỆN
       </h1>
       <div className="lg:flex gap-10">
         <div>
           <img src={imgMap}></img>
         </div>
-        <div className="w-1/3">
-          <EventBox
-            title="HÒA NHẠC CÙNG DJ ĐỨC ROMAN FLUGEL"
-            img={imgDJEvent}
-          />
-          <div className="mt-4">
+        <div className="w-full mt-3 gap-3 lg:w-1/3 flex flex-row lg:flex-col lg:mt-0">
+          <div className="w-1/2 lg:w-full">
+            <EventBox
+              title="HÒA NHẠC CÙNG DJ ĐỨC ROMAN FLUGEL"
+              img={imgDJEvent}
+            />
+          </div>
+
+          <div className=" w-1/2 lg:w-full lg:mt-4">
             <EventBox
               title="TRIỂN LÃM “ART IN THE FOREST 2019” "
               img={imgArtEvent}
@@ -135,7 +137,7 @@ const Homepage = () => {
       </div>
       <div className="lg:flex bg-[#6F6F4B]/60 mt-10 rounded-sm p-5">
         <div className="lg:w-1/2 gap-20">
-          <h1 className="text-[#9A1A04] font-lodestone text-4xl mt-3 py-10">
+          <h1 className="text-[#9A1A04] font-lodestone text-2xl md:text-4xl lg:text-5xl mt-3 py-10">
             VÌ SAO NÊN CHỌN STAYNOW
           </h1>
           <WhyChooseHotelX
@@ -165,8 +167,8 @@ const Homepage = () => {
           />
         </div>
         <div>
-           <h1 className="text-[#9A1A04] font-lodestone text-4xl mt-3 py-10">
-            CỘNG ĐỒNG 
+          <h1 className="text-[#9A1A04] font-lodestone text-2xl md:text-4xl lg:text-5xl mt-3 py-10">
+            CỘNG ĐỒNG
           </h1>
           <img src={imgFeedback} alt="image feeback" className="w-full"></img>
         </div>

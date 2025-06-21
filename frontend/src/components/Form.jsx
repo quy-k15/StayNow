@@ -6,8 +6,7 @@ import { FaRegCalendar } from "react-icons/fa6";
 import { IoMdAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
 import "react-datepicker/dist/react-datepicker.css";
-import DateRangePicker from './DateRangePicker';
-
+import DateRangePicker from "./DateRangePicker";
 
 const hotels = [
   { name: "Tất cả khách sạn", value: "all" },
@@ -37,14 +36,17 @@ const Form = () => {
       localStorage.setItem("children", children);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     const storedAdults = localStorage.getItem("adults");
     const storedChildren = localStorage.getItem("children");
-    if(storedAdults) setAdults(storedAdults);
-    if(storedChildren) setChildren(storedChildren);
-  },[])
+    if (storedAdults) setAdults(storedAdults);
+    if (storedChildren) setChildren(storedChildren);
+  }, []);
   return (
-    <div className="absolute z-1 -bottom-30 right-10 w-[350px] bg-[#6F6F4B] p-5 border-2 rounded-sm border-none text-balance text-white">
+    <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+      md:top-auto md:left-auto md:translate-x-0 md:translate-y-0  md:bottom-8 md:right-10  
+      w-full max-w-[350px] bg-[#6F6F4B]/60 p-5  rounded-sm border-none 
+      lg:-bottom-30 text-balance text-white">
       <p>
         Đặt trực tiếp với chúng tôi, để nhận được mức giá ưu đãi tốt nhất, cùng
         nhiều khuyễn mãi khác.
@@ -72,7 +74,7 @@ const Form = () => {
       </Popover>
       <h4 className="pt-2 pb-1 font-bold">Ngày</h4>
 
-      <DateRangePicker bgColor="ffffff" textColor="A0A0A0" width="100%"/>
+      <DateRangePicker bgColor="ffffff" textColor="A0A0A0" width="100%" />
 
       <h4 className="pb-1 font-bold">Khách</h4>
       <div className=" relative flex justify-between gap-4">
@@ -80,20 +82,19 @@ const Form = () => {
         <div className="w-1/2">
           <p>Người lớn</p>
           <div className="flex items-center gap-2 justify-between bg-white text-[#A0A0A0] rounded-sm mt-1 py-2">
-
             <button
               onClick={() => handleChange("adults", "decrease")}
               className="px-3 py-1 text-lg font-bold cursor-pointer"
             >
               <RiSubtractLine />
             </button>
-            <p >{adults}</p>
-            
+            <p>{adults}</p>
+
             <button
               onClick={() => handleChange("adults", "increase")}
               className="px-3 py-1  text-lg font-bold cursor-pointer"
             >
-              <IoMdAdd/>
+              <IoMdAdd />
             </button>
           </div>
         </div>
@@ -102,25 +103,26 @@ const Form = () => {
         <div className="w-1/2">
           <p>Trẻ em</p>
           <div className="flex items-center gap-2 justify-between bg-white text-[#A0A0A0] rounded-sm mt-1 py-2">
-
             <button
               onClick={() => handleChange("children", "decrease")}
               className="px-3 py-1 text-lg font-bold cursor-pointer"
             >
               <RiSubtractLine />
             </button>
-            <p >{children}</p>
-            
+            <p>{children}</p>
+
             <button
               onClick={() => handleChange("children", "increase")}
               className="px-3 py-1  text-lg font-bold cursor-pointer"
             >
-              <IoMdAdd/>
+              <IoMdAdd />
             </button>
           </div>
         </div>
       </div>
-      <button className="font-lodestone bg-[#9A1A04] w-full mt-6 py-2 rounded-sm cursor-pointer transition-transform duration-300 transform hover:scale-105">KIỂM TRA PHÒNG TRỐNG</button>
+      <button className="font-lodestone bg-[#9A1A04] w-full mt-6 py-2 rounded-sm cursor-pointer transition-transform duration-300 transform hover:scale-105">
+        KIỂM TRA PHÒNG TRỐNG
+      </button>
     </div>
   );
 };
