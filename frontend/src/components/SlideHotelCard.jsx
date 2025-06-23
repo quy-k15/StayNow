@@ -16,7 +16,7 @@ const SlideHotelCard = () => {
   const nextRef = useRef(null);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full overflow-hidden">
       <img
         ref={prevRef}
         className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 shadow cursor-pointer rounded-full"
@@ -32,8 +32,26 @@ const SlideHotelCard = () => {
       <Swiper
         className="!px-0"
         modules={[Navigation]}
-        spaceBetween={0}
-        slidesPerView={4}
+        slidesPerView="auto"
+        spaceBetween={12}
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 8,
+          },
+          640: {
+            // sm
+            slidesPerView: 3.5,
+          },
+          1024: {
+            // lg
+            slidesPerView: 4,
+          },
+          1280: {
+            // xl
+            slidesPerView: 5,
+          },
+        }}
         Navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,

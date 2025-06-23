@@ -6,7 +6,7 @@ import { FaRegCalendar } from "react-icons/fa6";
 import { IoMdAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
 import "react-datepicker/dist/react-datepicker.css";
-import DateRangePicker from "./DateRangePicker";
+import DateGuestPicker from "./DateGuestPicker";
 
 const hotels = [
   { name: "Tất cả khách sạn", value: "all" },
@@ -74,7 +74,7 @@ const Form = () => {
       </Popover>
       <h4 className="pt-2 pb-1 font-bold">Ngày</h4>
 
-      <DateRangePicker bgColor="ffffff" textColor="A0A0A0" width="100%" />
+      <DateGuestPicker bgColor="ffffff" textColor="A0A0A0" width="100%" showGuest={false} />
 
       <h4 className="pb-1 font-bold">Khách</h4>
       <div className=" relative flex justify-between gap-4">

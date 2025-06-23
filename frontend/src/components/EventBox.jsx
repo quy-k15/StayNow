@@ -5,7 +5,7 @@ const EventBox = ({ title, img }) => (
       backgroundImage: `url(${img})`,
     }}
   >
-    <p className="bg-[#EFC793] rounded-sm px-4 py-1 w-1/5"> Sự kiện </p>
+    <p className="bg-[#EFC793] rounded-sm px-4 py-1 w-fit "> Sự kiện </p>
     <div className="absolute bg-[#6F6F4B]/80 w-full bottom-0 font-lodestone items-center justify-center flex">
       <h2 className="py-4">{title}</h2>
     </div>

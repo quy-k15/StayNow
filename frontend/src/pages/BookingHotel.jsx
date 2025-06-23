@@ -2,9 +2,8 @@ import { useState } from "react";
 import RoomCard from "../components/RoomCard";
 import Subtitle from "../components/Subtitle";
 import imghotelLists from "../assets/imghotelLists.png";
-import DateRangePicker from "../components/DateRangePicker";
+import DateGuestPicker from "../components/DateGuestPicker";
 import { FaUserGroup } from "react-icons/fa6";
-import GuestRoomPicker from "../components/GuestRoomPicker";
 import DetailRoomCard from "../components/DetailRoomCard";
 
 const BookingHotel = () => {
@@ -29,8 +28,7 @@ const BookingHotel = () => {
         KHÁCH SẠN TẠI HUẾ VÀ ĐỊA ĐIỂM LƯU TRÚ
       </h2>
       <div className="flex lg:w-2/3 items-center gap-4 relative">
-        <DateRangePicker bgColor="6F6F4B" textColor="ffffff" width="65%"/>
-        <GuestRoomPicker />
+        <DateGuestPicker bgColor="6F6F4B" textColor="ffffff" width="65%"/>
       </div>
       
       <hr className="h-[3px] w-full bg-[#6F6F4B] border-none my-4"></hr>
