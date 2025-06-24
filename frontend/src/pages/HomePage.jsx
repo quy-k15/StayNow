@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import imgSlideHome from "../assets/imgSlideHomePage.png";
-import Form from "../components/form";
+import Form from "../components/Form";
 import iconGoodPrice from "../assets/iconGoodPrice.png";
 import iconSaveTime from "../assets/iconSaveTime.png";
 import iconSmartHotel from "../assets/iconSmartHotel.png";

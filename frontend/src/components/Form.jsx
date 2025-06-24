@@ -46,7 +46,7 @@ const Form = () => {
     <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
       md:top-auto md:left-auto md:translate-x-0 md:translate-y-0  md:bottom-8 md:right-10  
       w-full max-w-[350px] bg-[#6F6F4B]/60 p-5  rounded-sm border-none 
-      lg:-bottom-30 text-balance text-white">
+      lg:-bottom-30 text-balance text-white mt-8 md:mt-0">
       <p>
         Đặt trực tiếp với chúng tôi, để nhận được mức giá ưu đãi tốt nhất, cùng
         nhiều khuyễn mãi khác.

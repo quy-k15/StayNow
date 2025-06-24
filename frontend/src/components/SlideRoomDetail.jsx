@@ -48,7 +48,7 @@ const SlideRoomDetail = () => {
             <img
               src={img}
               alt={`main-${idx}`}
-              className="w-full h-[500px] object-cover rounded"
+              className="w-full max-h-[300px] md:max-h-[500px] object-cover rounded"
             />
           </SwiperSlide>
         ))}
@@ -58,7 +58,7 @@ const SlideRoomDetail = () => {
       <Swiper
         modules={[Thumbs]}
         onSwiper={setThumbsSwiper}
-        spaceBetween={10}
+        spaceBetween={5}
         slidesPerView={4.5} // ✅ 4 ảnh đầy + 1 nửa ảnh
         watchSlidesProgress
         className="cursor-pointer"
@@ -68,7 +68,7 @@ const SlideRoomDetail = () => {
             <img
               src={img}
               alt={`thumb-${idx}`}
-              className="w-full h-[100px] object-cover rounded"
+              className="w-full h-[60px] md:h-[100px] object-cover rounded"
             />
           </SwiperSlide>
         ))}
