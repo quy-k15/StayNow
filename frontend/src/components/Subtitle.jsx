@@ -19,7 +19,7 @@ const Subtitle = () => {
   };
 
   return (
-    <div className="flex-col gap-10">
+    <div className="flex-col gap-10 bg-[#6F6F4B] md:bg-transparent rounded-sm p-3">
       <Section
         title="Giảm giá"
         isOpen={openSections.discount}

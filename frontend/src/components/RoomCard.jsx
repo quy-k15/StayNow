@@ -58,17 +58,17 @@ const RoomCard = ({ img, name, star, comment, price, list, onOpenRoom }) => {
             </div>
           </div>
         </div>
-        <div className="flex mt-1 md:mt-2 lg:mt-5">
+        <div className="w-full flex flex-col md:flex-row justify-end gap-2 md:gap-5 mt-1 md:mt-2 lg:mt-5">
           {list && (
             <>
               <button
-                className=" bg-[#9A1A04] px-4 py-1 rounded-sm font-lodestone text-amber-50 ml-auto mt-auto cursor-pointer text-sm md:text-base lg:text-lg"
+                className="w-full bg-[#9A1A04] px-4 py-1 rounded-sm font-lodestone text-amber-50 cursor-pointer text-sm md:text-base lg:text-lg"
                 onClick={onOpenRoom}
               >
                 Xem Phòng
               </button>
               <button
-                className="bg-[#6F6F4B] px-4 py-1 rounded-sm font-lodestone text-amber-50 ml-5 cursor-pointer text-sm md:text-base lg:text-lg"
+                className="w-full bg-[#6F6F4B] px-4 py-1 rounded-sm font-lodestone text-amber-50 cursor-pointer text-sm md:text-base lg:text-lg"
                 onClick={handleDetailHotels}
               >
                 Xem Khách sạn
