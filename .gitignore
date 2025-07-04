@@ -23,3 +23,20 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# ===== .NET Core build artifacts =====
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider / JetBrains IDEs
+.idea/
+
+# VSCode settings (optional)
+.vscode/*
+!.vscode/extensions.json

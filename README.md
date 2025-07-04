@@ -17,3 +17,7 @@ font-lodestone
 cd backend
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Swashbuckle.AspNetCore
+dotnet add package MySql.EntityFrameworkCore
+dotnet add package Pomelo.EntityFrameworkCore.MySql
+
