@@ -1,5 +1,6 @@
 using backend.Data;
 using backend.Models;
+using backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,9 +17,25 @@ namespace backend.Controllers
         }
         //GET: api/hotel
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hotel>>> GetHotels()
+        // public async Task<ActionResult<IEnumerable<Hotel>>> GetHotels()
+        // {
+
+        //     return await _context.Hotels.ToListAsync();//truy vấn bất đồng bộ
+        // }
+        public async Task<ActionResult> GetHotels()
         {
-            return await _context.Hotels.ToListAsync();//truy vấn bất đồng bộ
+            try
+            {
+                var hotels = await _context.Hotels.ToListAsync();
+                return Ok(hotels);
+            }
+            catch (Exception ex)
+            {
+                 Console.WriteLine("Lỗi truy vấn: " + ex.Message); // Ghi log
+        Console.WriteLine("Chi tiết: " + ex.StackTrace);
+        return StatusCode(StatusCodes.Status500InternalServerError,
+            $"Lỗi truy vấn dữ liệu: {ex.Message}");
+            }
         }
         //Set: api/hotel/5
 
@@ -32,10 +49,35 @@ namespace backend.Controllers
         }
         //POST: api/hotel
         [HttpPost]
-        public async Task<ActionResult<Hotel>> CreateHotel(Hotel hotel)
+        public async Task<ActionResult<Hotel>> CreateHotel(
+            [FromForm] IFormFile image,
+            [FromForm] string name,
+            [FromForm] string address,
+            [FromForm] string description,
+            [FromForm] string rating,
+            [FromServices] PhotoUploadService uploadService
+        )
         {
+            if (image == null || image.Length == 0)
+            {
+                return BadRequest("Ảnh không hợp lệ");
+            }
+
+            // Upload ảnh lên Cloudinary
+            var imageUrl = await uploadService.UploadImageAsync(image);
+
+            var hotel = new Hotel
+            {
+                Name = name,
+                Address = address,
+                Description = description,
+                Rating = rating,
+                imgURL = imageUrl
+            };
+
             _context.Hotels.Add(hotel);
             await _context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetHotel), new { id = hotel.IdHotel }, hotel);
         }
 

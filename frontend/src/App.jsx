@@ -16,23 +16,27 @@ import Footer from "./components/Footer";
 import "./assets/fonts/fonts.css";
 import imgBackground from "./assets/imgBackground.jpg";
 
-
+//Admin
+import UploadHotelPage from "./pages/adminPages/UploadHotelPage";
 
 function App() {
   return (
     <Router>
-      <div className="appContainer font-UTM min-h-screen bg-cover bg-center font-UTM "
-      style={{
+      <div
+        className="appContainer font-UTM min-h-screen bg-cover bg-center font-UTM "
+        style={{
           backgroundImage: `url(${imgBackground})`,
-        }}>
+        }}
+      >
         <Header />
         <div className="appContent">
           <Routes>
             <Route path="/" element={<Navigate to="/homePage" replace />} />
             <Route path="/homePage" element={<HomePage />} />
             <Route path="/bookingHotel" element={<BookingHotel />} />
-             <Route path="/detailHotelsPage" element={<DetailHotelsPage />} />
-             <Route path="/listHotelsPage" element={<ListHotelsPage />} />
+            <Route path="/detailHotelsPage" element={<DetailHotelsPage />} />
+            <Route path="/listHotelsPage" element={<ListHotelsPage />} />
+            <Route path="/uploadHotelPage" element={<UploadHotelPage />} />
             <Route
               path="*"
               element={
@@ -45,7 +49,7 @@ function App() {
             />
           </Routes>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );

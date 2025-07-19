@@ -64,7 +64,7 @@ const Header = () => {
           <a href="/listHotelsPage" className="text-sm/6 font-semibold text-gray-900">
             Khách Sạn 
           </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+          <a href="/uploadHotelPage" className="text-sm/6 font-semibold text-gray-900">
             Các Loại Gói 
           </a>
           <Popover className="relative">

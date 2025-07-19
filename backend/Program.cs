@@ -1,18 +1,22 @@
 using backend.Data;
-using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using backend.Models;
+using CloudinaryDotNet;
+using backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-// connect MySQL
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+// 🔗 Kết nối MySQL
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<StayNowDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-//Controller
+// 📦 Controller
 builder.Services.AddControllers();
-//swagger
-builder.Services.AddEndpointsApiExplorer(); // 🔑 Quan trọng để Swagger hoạt động
+
+// 📘 Swagger
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -20,50 +24,49 @@ builder.Services.AddSwaggerGen(c =>
         Title = "StayNow API",
         Version = "v1"
     });
-});          // 🔑 Tạo tài liệu Swagger UI
+});
+
+//Cloudinary
+builder.Services.Configure<CloudinarySettings>(
+    builder.Configuration.GetSection("CloudinarySettings"));
+var cloudinarySettings = builder.Configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+Account account = new Account(
+    cloudinarySettings.CloudName,
+    cloudinarySettings.ApiKey,
+    cloudinarySettings.ApiSecret);
+Cloudinary cloudinary = new Cloudinary(account);
+
+builder.Services.AddSingleton(cloudinary);
+builder.Services.AddScoped<PhotoUploadService>();
+//  CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173") //React app URL
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 🔧 Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();                       // 🔧 Tạo tài liệu Swagger JSON
-    app.UseSwaggerUI();                     // 🔧 Hiển thị Swagger UI tại /swagger
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-// Mapping Controller route
+// 🔓 Cho phép frontend truy cập API
+app.UseCors("AllowReactApp");
+
+app.UseAuthorization();
+
 app.MapControllers();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", 
-    "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-// Define minimal API endpoint with Swagger metadata
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithDescription("Get a 5-day weather forecast.")
-.WithTags("Weather Forecast")  // ✅ Gắn tag để hiển thị nhóm trong Swagger
-.Produces<IEnumerable<WeatherForecast>>(StatusCodes.Status200OK);
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
-

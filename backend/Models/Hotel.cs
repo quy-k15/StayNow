@@ -17,9 +17,11 @@ namespace backend.Models
 
         public string Rating { get; set; }
 
+         public string imgURL { get; set; }
+
 
         // Quan hệ: Hotel có nhiều Room, Review
-        public ICollection<Room> Rooms { get; set; }
-        public ICollection<Review> Reviews { get; set; }
+        // public ICollection<Room>? Rooms { get; set; }// ? --> cho phép null
+        // public ICollection<Review>? Reviews { get; set; }
     }
 }
