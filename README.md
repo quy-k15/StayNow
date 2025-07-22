@@ -30,6 +30,9 @@ dotnet add package CloudinaryDotNet // Lưu ảnh
 
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 dotnet add package BCrypt.Net-Next
+dotnet add package System.IdentityModel.Tokens.Jwt
+
+
 
 
 
