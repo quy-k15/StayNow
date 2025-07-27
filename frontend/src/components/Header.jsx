@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogPanel,
@@ -14,6 +15,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import logoStayNow from "../assets/Logo_StayNow.png";
+import { FaUserCircle } from "react-icons/fa";
+import { AuthContext } from "../contexts/AuthContext";
 // import {
 //   ArrowPathIcon,
 //   Bars3Icon,
@@ -33,9 +36,19 @@ const products = [
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const {isLoggedIn}= useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleUserClick =()=>{
+    if(isLoggedIn){
+      navigate("/profilePage");
+    }else{
+      navigate("/loginPage");
+    }
+      
 
+  }
   return (
-    <header className="bg-[#F2B03F]">
+    <header className="bg-[#F2B03F] fixed top-0 left-0 w-full z-50">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
@@ -59,17 +72,23 @@ const Header = () => {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12 items-center justify-between">
           <a href="/homePage" className="text-sm/6 font-semibold text-gray-900">
-            Trang Chủ 
+            Trang Chủ
           </a>
-          <a href="/listHotelsPage" className="text-sm/6 font-semibold text-gray-900">
-            Khách Sạn 
+          <a
+            href="/listHotelsPage"
+            className="text-sm/6 font-semibold text-gray-900"
+          >
+            Khách Sạn
           </a>
-          <a href="/uploadHotelPage" className="text-sm/6 font-semibold text-gray-900">
-            Các Loại Gói 
+          <a
+            href="/uploadHotelPage"
+            className="text-sm/6 font-semibold text-gray-900"
+          >
+            Các Loại Gói
           </a>
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold  px-4 py-1 text-gray-400 border-2 rounded-sm border-black bg-white">
-              Hà Nội 
+              Hà Nội
               <RiArrowDropDownLine className="size-5 flex-none text-gray-400 ml-10" />
             </PopoverButton>
 
@@ -110,10 +129,19 @@ const Header = () => {
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end cursor-pointer">
-          <a href="/bookingHotel" className="text-sm/6 font-semibold text-gray-900">
-            Đặt Phòng  
+          <a
+            href="/bookingHotel"
+            className="text-sm/6 font-semibold text-gray-900"
+          >
+            Đặt Phòng
           </a>
         </div>
+       <button
+        onClick={handleUserClick}
+        className="text-sm/6 font-semibold text-gray-900"
+      >
+        <FaUserCircle />
+      </button>
       </nav>
       <Dialog
         open={mobileMenuOpen}
@@ -189,11 +217,11 @@ const Header = () => {
                 </a>
               </div>
               <a
-                  href="/bookingHotel"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Đặt Phòng 
-                </a>
+                href="/bookingHotel"
+                className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+              >
+                Đặt Phòng
+              </a>
             </div>
           </div>
         </DialogPanel>

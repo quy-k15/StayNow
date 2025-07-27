@@ -21,7 +21,7 @@ const DetailHotelsPage = () => {
     setOpenDetailRoom(false);
   };
   return (
-    <div className="mx-auto max-w-7xl font-UTM relative">
+    <div className="mx-auto max-w-7xl font-UTM relative mt-14 pt-0.5">
       <div className="flex flex-col md:flex-row w-full gap-4 overflow-hidden mt-3">
         <img
           src={imgRoomCard1}

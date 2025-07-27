@@ -21,7 +21,7 @@ const BookingHotel = () => {
     setShowSubtitle((prev) => !prev);
   };
   return (
-    <div className="mx-auto max-w-7xl font-UTM relative min-h-screen">
+    <div className="mx-auto max-w-7xl font-UTM relative min-h-screen mt-14">
       <h2 className="font-lodestone text-[#9A1A04] text-2xl md:text-4xl lg:text-5xl mt-10 mb-5">
         {" "}
         KHÁCH SẠN TẠI HUẾ, ĐỊA ĐIỂM LƯU TRÚ

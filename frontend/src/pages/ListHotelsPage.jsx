@@ -3,7 +3,7 @@ import SlideHotelCard from "../components/SlideHotelCard";
 
 const ListHotelsPage = () => {
   return (
-    <div className="w-full font-UTM">
+    <div className="w-full font-UTM mt-14 pt-0.5">
       <div className="mx-auto max-w-7xl px-5 lg:px-0">
         <h1 className="font-lodestone text-2xl md:text-4xl lg:text-5xl text-[#9A1A04] mb-3 mt-5">
           CÁC KHÁCH SẠN TẠI HUẾ

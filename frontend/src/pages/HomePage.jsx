@@ -24,7 +24,7 @@ import Voucher from "../components/Voucher";
 
 const Homepage = () => {
   return (
-    <div className="mx-auto max-w-7xl font-UTM">
+    <div className="mx-auto max-w-7xl font-UTM mt-14">
       <div className="bg-[#E8D4B9] h-[550px] md:h-[500px] max-h-7xl relative md:flex items-center justify-between mx-auto">
         <div className="font-lodestone py-3 md:pl-10 lg:pl-20 flex text-2xl md:text-4xl lg:text-5xl leading-tight text-[#9A1A04] relative z-10 justify-center md:justify-start">
           <h1 className="mr-2">KHÁM PHÁ</h1>
